@@ -7,19 +7,19 @@ import { Ingredient } from '../shared/ingredient.model';
 export class RecipeService {
     recipeSelectedEmitter = new EventEmitter<Recipe>();
     private recipes: Recipe[] = [
-        new Recipe('Kathi Roll', 'bread roll with vegetables',
+        new Recipe(0, 'Kathi Roll', 'bread roll with vegetables',
             'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?cs=srgb&dl=burrito-chicken-close-up-461198.jpg&fm=jpg',
             [
-                new Ingredient("Break", 2),
-                new Ingredient("Chicken", 250),
-                new Ingredient("Egg", 2)
+                new Ingredient(111, "Break", 2),
+                new Ingredient(125, "Chicken", 250),
+                new Ingredient(129, "Egg", 2)
             ]),
-        new Recipe('Pizza', 'bread roll with vegetables',
+        new Recipe(1, 'Pizza', 'bread roll with vegetables',
             'https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/frying-pan-pizza-easy-recipe-collection.jpg',
             [
-                new Ingredient('Bread', 1),
-                new Ingredient('Red Sause', 1),
-                new Ingredient('Meat', 100),
+                new Ingredient(310, 'Bread', 1),
+                new Ingredient(329, 'Red Sause', 1),
+                new Ingredient(376, 'Meat', 100),
             ]),
     ]
 
@@ -33,6 +33,10 @@ export class RecipeService {
 
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
         this.shoppingListService.addIngredients(ingredients.slice())
+    }
+
+    findById(id: number): Recipe {
+        return this.recipes.slice().find(r => r.id === id)
     }
 
 

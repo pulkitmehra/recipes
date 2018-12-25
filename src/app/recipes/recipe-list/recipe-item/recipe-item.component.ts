@@ -14,9 +14,5 @@ export class recipeItemComponent implements OnInit {
   constructor(private recipeService: RecipeService) { }
   ngOnInit() {
   }
-  onRecipeSelected(event: Recipe) {
-    console.log("recipe sent " + JSON.stringify(this.recipe))
-    this.recipeService.recipeSelectedEmitter.emit(this.recipe)
-  }
 
 }

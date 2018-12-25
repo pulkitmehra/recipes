@@ -4,9 +4,9 @@ import { EventEmitter } from '@angular/core';
 export class ShoppingListService {
     ingredientEventEmitter = new EventEmitter<Ingredient[]>();
     private ingredients: Ingredient[] = [
-        new Ingredient('Cumin', 12),
-        new Ingredient('Meat', 8),
-        new Ingredient('Apple', 5),
+        new Ingredient(0, 'Cumin', 12),
+        new Ingredient(1, 'Meat', 8),
+        new Ingredient(2, 'Apple', 5),
     ];
 
     getIngredients() {
@@ -14,7 +14,8 @@ export class ShoppingListService {
     }
 
     addIngredient(name: string, amount: number) {
-        const ingredient = new Ingredient(name, amount)
+        const id = Math.floor((Math.random() * 100) + 1);
+        const ingredient = new Ingredient(id, name, amount)
         this.ingredients.push(ingredient)
         this.ingredientEventEmitter.emit(this.getIngredients())
     }

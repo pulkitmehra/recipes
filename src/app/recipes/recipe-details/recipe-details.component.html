@@ -13,25 +13,25 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         Manage Recipe
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" (click)="onAddIngredientsToShoppingList()" >Add</a>
-        <a class="dropdown-item" href="#">Edit</a>
-        <a class="dropdown-item" href="#">Delete</a>
+        <a class="dropdown-item" (click)="onAddIngredientsToShoppingList()" style="cursor: pointer;">Add</a>
+        <a class="dropdown-item" (click)="onNavigateToRoute()" style="cursor: pointer;">Edit</a>
+        <a class="dropdown-item" style="cursor: pointer;">Delete</a>
       </div>
     </div>
   </div>
 </div>
-<br/>
+<br />
 <div class="row">
   <div class="col-sm-12">
     {{recipe.description}}
   </div>
 </div>
-<br/>
+<br />
 <div class="row">
   <div class="col-sm-12">
     <ul class="list-group">
