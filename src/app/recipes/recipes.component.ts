@@ -8,19 +8,21 @@ import { RecipeService } from './recipe.service';
   styleUrls: ['./recipes.component.css'],
   providers: [RecipeService]
 })
-export class recipesComponent implements OnInit {
+export class RecipesComponent implements OnInit {
 
   selectedRecipe: Recipe;
 
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
+    /* 
+    Not used but there for reference
     this.recipeService.recipeSelectedEmitter.subscribe(
       (recipe: Recipe) => {
         console.log("Recipe recieved " + JSON.stringify(recipe))
         this.selectedRecipe = recipe;
       }
-    );
+    ); */
   }
 
 }

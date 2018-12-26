@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { recipesComponent } from './recipes/recipes.component';
+import { RecipesComponent } from './recipes/recipes.component';
 import { recipeDetailsComponent } from './recipes/recipe-details/recipe-details.component';
 import { RecipeListComponent } from './recipes/recipe-list/recipe-list.component';
 import { recipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
@@ -20,7 +20,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    recipesComponent,
+    RecipesComponent,
     recipeDetailsComponent,
     RecipeListComponent,
     recipeItemComponent,

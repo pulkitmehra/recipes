@@ -5,7 +5,9 @@ import { Ingredient } from '../shared/ingredient.model';
 
 @Injectable()
 export class RecipeService {
-    recipeSelectedEmitter = new EventEmitter<Recipe>();
+    //this is not used but its there for reference
+    //recipeSelectedEmitter = new EventEmitter<Recipe>();
+    
     private recipes: Recipe[] = [
         new Recipe(0, 'Kathi Roll', 'bread roll with vegetables',
             'https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?cs=srgb&dl=burrito-chicken-close-up-461198.jpg&fm=jpg',
