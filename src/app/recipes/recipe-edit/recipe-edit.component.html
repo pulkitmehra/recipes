@@ -1,3 +1,88 @@
-<p>
-  recipe-edit works!
-</p>
+<div class="container-fluid">
+
+
+  <div class="row">
+    <div class="col-xl-12">
+      <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+
+        <div class="row">
+          <div class="col-xl-8">
+            <h3>Add New Recipe</h3>
+          </div>
+          <div class="col-xl-4">
+            <button type="button" type="submit" class="btn btn-success mr-1" [disabled]="!recipeForm.valid">Save</button>
+            <button type="button" type="button" (click)="onRecipeCancel()" class="btn btn-info mr-1">Cancel</button>
+            <button type="button" type="button" class="btn btn-danger mr-1" (click)="onRecipeDelete()">Delete</button>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="form-group">
+              <input type="text" formControlName="name" name="name" class="form-control" placeholder="Name"
+                aria-describedby="helpId">
+              <small id="helpId" class="text-muted">Name is required</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="form-group">
+              <input type="text" formControlName="imagePath" name="imagePath" class="form-control" placeholder="Image url"
+                aria-describedby="helpId" #imagePath>
+              <small id="helpId" class="text-muted">Image path is required</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="row md-1">
+          <div class="col-xl-12">
+            <img [src]="imagePath.value" class="img-responsive" style="max-height: 200px;">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="form-group">
+              <textarea type="text" formControlName="description" name="description" class="form-control" placeholder="Description"
+                aria-describedby="helpId" rows="6"></textarea>
+              <small id="helpId" class="text-muted">Description is required</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-12" formArrayName="ingredients">
+            <div class="form-group" *ngFor="let ingredientCtrl of recipeForm.get('ingredients').controls; let idx = index;"
+              [formGroupName]="idx">
+              <div class="row">
+
+                <div class="col-xl-6">
+                  <input type="text" formControlName="name" class="form-control" placeholder="Name">
+                </div>
+                <div class="col-xl-4">
+                  <input type="number" formControlName="amount" class="form-control" placeholder="Amount">
+                </div>
+                <div class="col-xl-2">
+                  <button type="button" class="btn btn-danger" (click)="onIngredientDelete(idx)">X</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-xl-12">
+            <button type="button" (click)="onAddIngredient()" class="btn btn-success mr-1">Add Ingredient</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

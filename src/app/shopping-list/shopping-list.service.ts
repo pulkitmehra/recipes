@@ -4,6 +4,8 @@ import { Subject } from 'rxjs';
 
 export class ShoppingListService {
     ingredientEventEmitter = new Subject<Ingredient[]>();
+    ingredientEditEvent = new Subject<number>();
+
     private ingredients: Ingredient[] = [
         new Ingredient(0, 'Cumin', 12),
         new Ingredient(1, 'Meat', 8),
@@ -12,6 +14,26 @@ export class ShoppingListService {
 
     getIngredients() {
         return this.ingredients.slice()
+    }
+
+    findIngredientById(id: number): Ingredient {
+        return this.ingredients.find(i => i.id === id)
+    }
+
+    updateIngredient(id: number, name: string, amount: number) {
+        const found = this.ingredients.findIndex(i => i.id === id);
+        if (found != -1) {
+            this.ingredients[found].name = name;
+            this.ingredients[found].amount = amount;
+        }
+    }
+
+    removeIngredientById(id: number) {
+        const found = this.ingredients.findIndex(i => i.id === id)
+        if (found != -1) {
+            this.ingredients.splice(found, 1);
+            this.ingredientEventEmitter.next(this.ingredients.slice())
+        }
     }
 
     addIngredient(name: string, amount: number) {
@@ -25,4 +47,6 @@ export class ShoppingListService {
         this.ingredients.push(...ingredients)
         this.ingredientEventEmitter.next(this.getIngredients())
     }
+
+
 }

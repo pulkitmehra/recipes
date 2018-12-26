@@ -7,10 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'practice';
-  feature: string
-
-  onNavigate(feature: string) {
-    console.log("In App"+ feature)
-    this.feature = feature
-  }
 }
